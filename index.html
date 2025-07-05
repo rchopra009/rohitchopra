@@ -4,402 +4,472 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Rohit Chopra - Co-Founder, Space Match</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <style>
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
         }
-        
+
+        :root {
+            --primary-black: #1a1a1a;
+            --warm-gray: #f5f5f7;
+            --accent-gray: #86868b;
+            --subtle-gray: #d2d2d7;
+            --white: #ffffff;
+            --accent-blue: #007aff;
+            --soft-shadow: rgba(0, 0, 0, 0.04);
+            --text-shadow: rgba(0, 0, 0, 0.02);
+        }
+
         body {
             font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
             line-height: 1.6;
-            color: #1a1a1a;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: var(--primary-black);
+            background: linear-gradient(135deg, var(--white) 0%, var(--warm-gray) 100%);
             min-height: 100vh;
+            overflow-x: hidden;
         }
-        
+
         .container {
-            max-width: 1200px;
+            max-width: 800px;
             margin: 0 auto;
-            padding: 2rem;
+            padding: 60px 40px;
+            position: relative;
         }
-        
-        .hero {
-            background: rgba(255, 255, 255, 0.95);
-            backdrop-filter: blur(20px);
-            border-radius: 24px;
-            padding: 3rem;
-            margin-bottom: 2rem;
-            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
-            border: 1px solid rgba(255, 255, 255, 0.2);
+
+        .hero-section {
+            text-align: center;
+            margin-bottom: 80px;
+            position: relative;
         }
-        
-        .hero-content {
-            display: grid;
-            grid-template-columns: 1fr 300px;
-            gap: 3rem;
-            align-items: center;
+
+        .hero-section::before {
+            content: '';
+            position: absolute;
+            top: -40px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 100px;
+            height: 2px;
+            background: linear-gradient(90deg, transparent, var(--accent-blue), transparent);
+            opacity: 0.6;
         }
-        
-        .hero-text h1 {
-            font-size: 3.5rem;
-            font-weight: 700;
-            margin-bottom: 1rem;
-            background: linear-gradient(135deg, #667eea, #764ba2);
+
+        .name {
+            font-size: clamp(2.5rem, 5vw, 3.5rem);
+            font-weight: 300;
+            letter-spacing: -0.02em;
+            margin-bottom: 12px;
+            background: linear-gradient(135deg, var(--primary-black), var(--accent-gray));
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
-            line-height: 1.2;
         }
-        
-        .hero-text .subtitle {
-            font-size: 1.5rem;
-            color: #4a5568;
-            margin-bottom: 0.5rem;
-            font-weight: 500;
-        }
-        
-        .hero-text .tagline {
+
+        .title {
             font-size: 1.1rem;
-            color: #718096;
-            margin-bottom: 2rem;
-        }
-        
-        .cta-button {
-            display: inline-block;
-            background: linear-gradient(135deg, #667eea, #764ba2);
-            color: white;
-            padding: 1rem 2rem;
-            border-radius: 50px;
-            text-decoration: none;
-            font-weight: 600;
-            transition: all 0.3s ease;
-            box-shadow: 0 10px 20px rgba(102, 126, 234, 0.3);
-        }
-        
-        .cta-button:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 15px 30px rgba(102, 126, 234, 0.4);
-        }
-        
-        .profile-photo {
-            width: 300px;
-            height: 300px;
-            border-radius: 24px;
-            object-fit: cover;
-            object-position: center top;
-            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
-            border: 4px solid rgba(255, 255, 255, 0.8);
-        }
-        
-        .section {
-            background: rgba(255, 255, 255, 0.95);
-            backdrop-filter: blur(20px);
-            border-radius: 20px;
-            padding: 2.5rem;
-            margin-bottom: 2rem;
-            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.08);
-            border: 1px solid rgba(255, 255, 255, 0.2);
-        }
-        
-        .section h2 {
-            font-size: 2.5rem;
-            font-weight: 700;
-            margin-bottom: 1.5rem;
-            color: #2d3748;
-        }
-        
-        .section-intro {
-            font-size: 1.3rem;
-            color: #4a5568;
-            margin-bottom: 2rem;
+            color: var(--accent-gray);
             font-weight: 500;
+            margin-bottom: 8px;
         }
-        
+
+        .tagline {
+            font-size: 0.95rem;
+            color: var(--accent-gray);
+            font-weight: 400;
+            margin-bottom: 40px;
+        }
+
         .divider {
             width: 60px;
-            height: 3px;
-            background: linear-gradient(135deg, #667eea, #764ba2);
-            margin: 2rem 0;
-            border-radius: 2px;
+            height: 1px;
+            background: var(--subtle-gray);
+            margin: 0 auto 40px;
+            opacity: 0.6;
         }
-        
-        .content-text {
-            font-size: 1.1rem;
-            color: #2d3748;
-            line-height: 1.8;
-            margin-bottom: 1.5rem;
+
+        .section {
+            margin-bottom: 60px;
+            position: relative;
         }
-        
+
+        .section-title {
+            font-size: 1.4rem;
+            font-weight: 600;
+            margin-bottom: 24px;
+            color: var(--primary-black);
+            position: relative;
+            display: inline-block;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -4px;
+            left: 0;
+            width: 40px;
+            height: 2px;
+            background: var(--accent-blue);
+            opacity: 0.8;
+        }
+
+        .section-content {
+            font-size: 1.05rem;
+            line-height: 1.7;
+            color: var(--primary-black);
+            margin-bottom: 24px;
+        }
+
+        .section-content p {
+            margin-bottom: 20px;
+        }
+
         .highlight {
-            background: linear-gradient(135deg, #667eea, #764ba2);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-            font-weight: 600;
+            background: linear-gradient(120deg, rgba(0, 122, 255, 0.1) 0%, rgba(0, 122, 255, 0.05) 100%);
+            padding: 2px 6px;
+            border-radius: 4px;
+            font-weight: 500;
         }
-        
-        .principles {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 1.5rem;
-            margin: 2rem 0;
-        }
-        
-        .principle {
-            background: rgba(102, 126, 234, 0.1);
-            border-radius: 16px;
-            padding: 1.5rem;
-            border-left: 4px solid #667eea;
-        }
-        
-        .principle h3 {
-            font-size: 1.2rem;
-            font-weight: 600;
-            color: #2d3748;
-            margin-bottom: 0.5rem;
-        }
-        
-        .principle p {
-            color: #4a5568;
-            font-size: 1rem;
-        }
-        
-        .fun-facts {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 1.5rem;
-            margin: 2rem 0;
-        }
-        
-        .fun-fact {
-            background: rgba(118, 75, 162, 0.1);
-            border-radius: 16px;
-            padding: 1.5rem;
-            border-left: 4px solid #764ba2;
-        }
-        
-        .fun-fact::before {
-            content: "⚡";
-            font-size: 1.5rem;
-            margin-right: 0.5rem;
-        }
-        
-        .contact-section {
-            text-align: center;
-            background: linear-gradient(135deg, #667eea, #764ba2);
-            color: white;
-            border-radius: 20px;
-            padding: 3rem;
-            margin-top: 3rem;
-        }
-        
-        .contact-section h2 {
-            color: white;
-            margin-bottom: 1rem;
-        }
-        
-        .contact-section p {
-            font-size: 1.2rem;
-            margin-bottom: 2rem;
+
+        .quote {
+            font-style: italic;
+            font-size: 1.1rem;
+            color: var(--accent-gray);
+            border-left: 3px solid var(--accent-blue);
+            padding-left: 20px;
+            margin: 24px 0;
             opacity: 0.9;
         }
-        
-        .contact-button {
-            display: inline-block;
-            background: rgba(255, 255, 255, 0.2);
-            border: 2px solid white;
-            color: white;
-            padding: 1rem 2rem;
-            border-radius: 50px;
-            text-decoration: none;
+
+        .principles {
+            background: var(--white);
+            border-radius: 12px;
+            padding: 32px;
+            box-shadow: 0 4px 20px var(--soft-shadow);
+            margin: 32px 0;
+            border: 1px solid rgba(0, 0, 0, 0.05);
+        }
+
+        .principles-list {
+            list-style: none;
+            padding: 0;
+        }
+
+        .principles-list li {
+            padding: 12px 0;
+            border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+            position: relative;
+            padding-left: 24px;
+        }
+
+        .principles-list li:last-child {
+            border-bottom: none;
+        }
+
+        .principles-list li::before {
+            content: '→';
+            position: absolute;
+            left: 0;
+            color: var(--accent-blue);
             font-weight: 600;
+        }
+
+        .fun-facts {
+            background: linear-gradient(135deg, var(--warm-gray) 0%, var(--white) 100%);
+            border-radius: 12px;
+            padding: 32px;
+            margin: 32px 0;
+            border: 1px solid rgba(0, 0, 0, 0.05);
+        }
+
+        .fun-facts h3 {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin-bottom: 24px;
+            font-size: 1.3rem;
+        }
+
+        .fun-facts ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .fun-facts li {
+            padding: 10px 0;
+            position: relative;
+            padding-left: 24px;
+        }
+
+        .fun-facts li::before {
+            content: '•';
+            position: absolute;
+            left: 0;
+            color: var(--accent-blue);
+            font-weight: 600;
+            font-size: 1.2rem;
+        }
+
+        .cta-section {
+            text-align: center;
+            margin-top: 60px;
+            padding: 40px 0;
+            position: relative;
+        }
+
+        .cta-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 100px;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, var(--subtle-gray), transparent);
+        }
+
+        .email-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 12px;
+            background: var(--primary-black);
+            color: var(--white);
+            padding: 16px 32px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 500;
             transition: all 0.3s ease;
-            backdrop-filter: blur(10px);
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
         }
-        
-        .contact-button:hover {
-            background: white;
-            color: #667eea;
+
+        .email-link:hover {
+            background: var(--accent-blue);
             transform: translateY(-2px);
+            box-shadow: 0 8px 30px rgba(0, 122, 255, 0.2);
         }
-        
-        @media (max-width: 768px) {
-            .hero-content {
-                grid-template-columns: 1fr;
-                text-align: center;
-            }
-            
-            .hero-text h1 {
-                font-size: 2.5rem;
-            }
-            
-            .profile-photo {
-                width: 250px;
-                height: 250px;
-            }
-            
-            .container {
-                padding: 1rem;
-            }
-            
-            .hero, .section {
-                padding: 2rem;
-            }
-            
-            .section h2 {
-                font-size: 2rem;
-            }
+
+        .icon {
+            width: 20px;
+            height: 20px;
+            fill: currentColor;
         }
-        
-        /* Animations */
-        @keyframes fadeInUp {
-            from {
-                opacity: 0;
-                transform: translateY(30px);
-            }
+
+        .floating-elements {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            pointer-events: none;
+            z-index: -1;
+        }
+
+        .floating-circle {
+            position: absolute;
+            border-radius: 50%;
+            background: linear-gradient(45deg, rgba(0, 122, 255, 0.02), rgba(0, 122, 255, 0.05));
+            animation: float 20s infinite ease-in-out;
+        }
+
+        .floating-circle:nth-child(1) {
+            width: 100px;
+            height: 100px;
+            top: 20%;
+            left: 10%;
+            animation-delay: 0s;
+        }
+
+        .floating-circle:nth-child(2) {
+            width: 60px;
+            height: 60px;
+            top: 60%;
+            right: 15%;
+            animation-delay: 7s;
+        }
+
+        .floating-circle:nth-child(3) {
+            width: 80px;
+            height: 80px;
+            bottom: 30%;
+            left: 20%;
+            animation-delay: 14s;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0px) rotate(0deg); }
+            25% { transform: translateY(-20px) rotate(90deg); }
+            50% { transform: translateY(-10px) rotate(180deg); }
+            75% { transform: translateY(-15px) rotate(270deg); }
+        }
+
+        .fade-in {
+            opacity: 0;
+            transform: translateY(20px);
+            animation: fadeIn 0.8s ease-out forwards;
+        }
+
+        @keyframes fadeIn {
             to {
                 opacity: 1;
                 transform: translateY(0);
             }
         }
-        
-        .hero, .section {
-            animation: fadeInUp 0.8s ease-out;
-        }
-        
-        .hero {
-            animation-delay: 0.1s;
-        }
-        
-        .section:nth-child(2) {
-            animation-delay: 0.2s;
-        }
-        
-        .section:nth-child(3) {
-            animation-delay: 0.3s;
-        }
-        
-        .section:nth-child(4) {
-            animation-delay: 0.4s;
+
+        .section:nth-child(1) .fade-in { animation-delay: 0.1s; }
+        .section:nth-child(2) .fade-in { animation-delay: 0.2s; }
+        .section:nth-child(3) .fade-in { animation-delay: 0.3s; }
+        .section:nth-child(4) .fade-in { animation-delay: 0.4s; }
+        .section:nth-child(5) .fade-in { animation-delay: 0.5s; }
+
+        @media (max-width: 768px) {
+            .container {
+                padding: 40px 20px;
+            }
+
+            .hero-section {
+                margin-bottom: 60px;
+            }
+
+            .section {
+                margin-bottom: 50px;
+            }
+
+            .principles, .fun-facts {
+                padding: 24px;
+            }
+
+            .email-link {
+                padding: 14px 28px;
+            }
         }
     </style>
 </head>
 <body>
+    <div class="floating-elements">
+        <div class="floating-circle"></div>
+        <div class="floating-circle"></div>
+        <div class="floating-circle"></div>
+    </div>
+
     <div class="container">
-        <div class="hero">
-            <div class="hero-content">
-                <div class="hero-text">
-                    <h1>Meet Rohit Chopra</h1>
-                    <p class="subtitle">Co-Founder, Space Match</p>
-                    <p class="tagline">Harvard-educated. Built in the trenches.</p>
-                    <a href="#contact" class="cta-button">Let's Connect</a>
-                </div>
-                <div class="profile-container">
-                    <img src="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQEAYABgAAD/2wBDAAMCAgMCAgMDAwMEAwMEBQgFBQQEBQoHBwYIDAoMDAsKCwsNDhIQDQ4RDgsLEBYQERMUFRUVDA8XGBYUGBIUFRT/2wBDAQMEBAUEBQkFBQkUDQsNFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBT/wAARCAEsASwDASIAAhEBAxEB/8QAHwAAAQUBAQEBAQEAAAAAAAAAAAECAwQFBgcICQoL/8QAtRAAAgEDAwIEAwUFBAQAAAF9AQIDAAQRBRIhMUEGE1FhByJxFDKBkaEII0KxwRVS0fAkM2JyggkKFhcYGRolJicoKSo0NTY3ODk6Q0RFRkdISUpTVFVWV1hZWmNkZWZnaGlqc3R1dnd4eXqDhIWGh4iJipKTlJWWl5iZmqKjpKWmp6ipqrKztLW2t7i5usLDxMXGx8jJytLT1NXW19jZ2uHi4+Tl5ufo6erx8vP09fb3+Pn6/8QAHwEAAwEBAQEBAQEBAQAAAAAAAAECAwQFBgcICQoL/8QAtREAAgECBAQDBAcFBAQAAQJ3AAECAxEEBSExBhJBUWEHInGBEzKRobHBCNHw8SMkNEJSM3KCkqLwJjNDU2N0grLh8PVGsjRTVGd4eXqCh4SFhoeIiYqSk5SVlpeYmZqio6Slpqeoqaqys7S1tre4ubrCw8TFxsfIycrS09TV1tfY2drh4uPk5ebn6Onq8vP09fb3+Pn6/9oADAMBAAIRAxEAPwD9/KKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKAC
-                </div>
+        <div class="hero-section fade-in">
+            <h1 class="name">Meet Rohit Chopra</h1>
+            <p class="title">Co-Founder, Space Match</p>
+            <p class="tagline">Harvard-educated. Built in the trenches.</p>
+            <div class="divider"></div>
+        </div>
+
+        <div class="section fade-in">
+            <div class="section-content">
+                <p><strong>I build systems that scale trust.</strong></p>
+                <p>I'm an operator, technologist, and systems thinker — currently co-building Space Match, a platform reimagining how commercial real estate is leased in India.</p>
+                <p>For over 20 years, I've led digital transformation at Fortune 500 companies, turned around struggling businesses, and built multiple ventures from scratch. My lens has always been the same:</p>
+                <div class="quote">Find the friction. Eliminate the noise. Build what compounds.</div>
             </div>
         </div>
-        
-        <div class="section">
-            <h2>I build systems that scale trust.</h2>
-            <div class="divider"></div>
-            <p class="content-text">
-                I'm an operator, technologist, and systems thinker — currently co-building <span class="highlight">Space Match</span>, a platform reimagining how commercial real estate is leased in India.
-            </p>
-            <p class="content-text">
-                For over 20 years, I've led digital transformation at Fortune 500 companies, turned around struggling businesses, and built multiple ventures from scratch. My lens has always been the same:
-            </p>
-            <p class="content-text">
-                <strong>Find the friction. Eliminate the noise. Build what compounds.</strong>
-            </p>
+
+        <div class="section fade-in">
+            <h2 class="section-title">Why Space Match</h2>
+            <div class="section-content">
+                <p>The idea for Space Match was born during a conversation with my co-founder Hitesh, while he was visiting me in the U.S.</p>
+                <p>We started talking about India's commercial real estate landscape — full of gatekeeping, guesswork, and outdated systems. It was clear:</p>
+                <div class="quote">This market doesn't need another listing site. It needs infrastructure.</div>
+                <p>So we're building exactly that — a <span class="highlight">high-trust platform powered by clean data, AI agents, and a product-first experience</span> that helps users go from search to signed lease without the chaos.</p>
+                <p>It's early, but we're obsessed with the craft. And the conviction is real.</p>
+            </div>
         </div>
-        
-        <div class="section">
-            <h2>Why Space Match</h2>
-            <div class="divider"></div>
-            <p class="content-text">
-                The idea for Space Match was born during a conversation with my co-founder Hitesh, while he was visiting me in the U.S.
-            </p>
-            <p class="content-text">
-                We started talking about India's commercial real estate landscape — full of gatekeeping, guesswork, and outdated systems. It was clear:
-            </p>
-            <p class="content-text">
-                <span class="highlight">This market doesn't need another listing site. It needs infrastructure.</span>
-            </p>
-            <p class="content-text">
-                So we're building exactly that — a high-trust platform powered by clean data, AI agents, and a product-first experience that helps users go from search to signed lease without the chaos.
-            </p>
-            <p class="content-text">
-                It's early, but we're obsessed with the craft. And the conviction is real.
-            </p>
-        </div>
-        
-        <div class="section">
-            <h2>How I Operate</h2>
-            <div class="divider"></div>
-            <p class="content-text">
-                I've always believed the best builders have one foot in the code and the other in the real world.
-            </p>
-            <p class="content-text">
-                I studied at Harvard, but learned the hard stuff from doing — scaling operations, fixing what's broken, and questioning default assumptions at every turn.
-            </p>
-            <p class="content-text">
-                I work fast, bias toward clarity, and care deeply about:
-            </p>
+
+        <div class="section fade-in">
+            <h2 class="section-title">How I Operate</h2>
+            <div class="section-content">
+                <p>I've always believed the best builders have one foot in the code and the other in the real world.</p>
+                <p>I studied at Harvard, but learned the hard stuff from doing — scaling operations, fixing what's broken, and questioning default assumptions at every turn.</p>
+                <p>I work fast, bias toward clarity, and care deeply about:</p>
+            </div>
             <div class="principles">
-                <div class="principle">
-                    <h3>Building leverage through automation</h3>
-                    <p>Systems that work harder than people do</p>
-                </div>
-                <div class="principle">
-                    <h3>Creating cultures of ownership, not control</h3>
-                    <p>Trust scales better than micromanagement</p>
-                </div>
-                <div class="principle">
-                    <h3>Designing products that feel inevitable</h3>
-                    <p>Great products feel obvious in hindsight</p>
-                </div>
+                <ul class="principles-list">
+                    <li>Building leverage through automation</li>
+                    <li>Creating cultures of ownership, not control</li>
+                    <li>Designing products that feel inevitable</li>
+                </ul>
             </div>
-            <p class="content-text">
-                If you're a builder, operator, or investor — and this resonates — we should talk.
-            </p>
+            <div class="section-content">
+                <p>If you're a builder, operator, or investor — and this resonates — we should talk.</p>
+            </div>
         </div>
-        
-        <div class="section">
-            <h2>⚡ Not Your Usual Bio</h2>
-            <p class="section-intro">(A few things that don't fit neatly into LinkedIn)</p>
-            <div class="divider"></div>
+
+        <div class="section fade-in">
             <div class="fun-facts">
-                <div class="fun-fact">
-                    <strong>Ran a 4:32 mile</strong><br>
-                    Systems matter at every level
-                </div>
-                <div class="fun-fact">
-                    <strong>Harvard-educated, but built in the trenches</strong><br>
-                    Theory meets practice
-                </div>
-                <div class="fun-fact">
-                    <strong>Doesn't love meetings — does love breaking bottlenecks</strong><br>
-                    Progress over process
-                </div>
-                <div class="fun-fact">
-                    <strong>Thinks in frameworks, builds in loops</strong><br>
-                    Iteration is everything
-                </div>
-                <div class="fun-fact">
-                    <strong>Believes clarity > control and incentives > rules</strong><br>
-                    People over policies
-                </div>
+                <h3>
+                    <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"></polygon>
+                    </svg>
+                    Not Your Usual Bio
+                </h3>
+                <p style="color: var(--accent-gray); margin-bottom: 20px; font-style: italic;">(A few things that don't fit neatly into LinkedIn)</p>
+                <ul>
+                    <li>Ran a 4:32 mile (systems matter at every level)</li>
+                    <li>Harvard-educated, but built in the trenches</li>
+                    <li>Doesn't love meetings — does love breaking bottlenecks</li>
+                    <li>Thinks in frameworks, builds in loops</li>
+                    <li>Believes clarity > control and incentives > rules</li>
+                </ul>
             </div>
         </div>
-        
-        <div class="contact-section" id="contact">
-            <h2>Ready to build something great?</h2>
-            <p>Whether you're a world-class builder looking for your next challenge or an investor backing the infrastructure of tomorrow, let's connect.</p>
-            <a href="mailto:rohit@spacematch.com" class="contact-button">Get in Touch</a>
+
+        <div class="cta-section fade-in">
+            <a href="mailto:rohitchopra@gmail.com" class="email-link">
+                <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="m4 4 16 0 0 16-16 0z"></path>
+                    <path d="m4 4 8 8 8-8"></path>
+                </svg>
+                Let's Connect
+            </a>
         </div>
     </div>
+
+    <script>
+        // Smooth scroll behavior for any internal links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+
+        // Add subtle parallax effect to floating elements
+        window.addEventListener('scroll', () => {
+            const scrolled = window.pageYOffset;
+            const rate = scrolled * -0.1;
+            const circles = document.querySelectorAll('.floating-circle');
+            
+            circles.forEach((circle, index) => {
+                const speed = (index + 1) * 0.1;
+                circle.style.transform = `translateY(${rate * speed}px)`;
+            });
+        });
+
+        // Intersection Observer for fade-in animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('fade-in');
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.section').forEach(section => {
+            observer.observe(section);
+        });
+    </script>
 </body>
 </html>
