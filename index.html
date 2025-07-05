@@ -4,287 +4,255 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Rohit Chopra - Co-Founder, Space Match</title>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <style>
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
         }
-
-        :root {
-            --primary-color: #0a0a0a;
-            --secondary-color: #1a1a1a;
-            --accent-color: #3b82f6;
-            --text-primary: #ffffff;
-            --text-secondary: #a1a1aa;
-            --text-muted: #71717a;
-            --border-color: #27272a;
-            --gradient-start: #1e40af;
-            --gradient-end: #7c3aed;
-        }
-
+        
         body {
-            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
-            background: var(--primary-color);
-            color: var(--text-primary);
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
             line-height: 1.6;
-            overflow-x: hidden;
+            color: #1a1a1a;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
         }
-
+        
         .container {
             max-width: 1200px;
             margin: 0 auto;
-            padding: 0 2rem;
+            padding: 2rem;
         }
-
-        /* Hero Section */
+        
         .hero {
-            min-height: 100vh;
-            display: flex;
-            align-items: center;
-            position: relative;
-            background: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 100%);
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(20px);
+            border-radius: 24px;
+            padding: 3rem;
+            margin-bottom: 2rem;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.2);
         }
-
-        .hero::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: radial-gradient(circle at 30% 20%, rgba(59, 130, 246, 0.1) 0%, transparent 50%),
-                        radial-gradient(circle at 70% 80%, rgba(124, 58, 237, 0.1) 0%, transparent 50%);
-            pointer-events: none;
-        }
-
+        
         .hero-content {
             display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 4rem;
+            grid-template-columns: 1fr 300px;
+            gap: 3rem;
             align-items: center;
-            position: relative;
-            z-index: 1;
-            width: 100%;
         }
-
-        .hero-text {
-            animation: fadeInUp 1s ease-out;
-        }
-
-        .hero-image {
-            display: flex;
-            justify-content: center;
-            animation: fadeInRight 1s ease-out 0.3s both;
-        }
-
-        .profile-image {
-            width: 400px;
-            height: 500px;
-            border-radius: 20px;
-            object-fit: cover;
-            object-position: center top;
-            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5),
-                        0 0 0 1px rgba(255, 255, 255, 0.1);
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-            background: var(--secondary-color);
-        }
-
-        .profile-image:hover {
-            transform: translateY(-10px) scale(1.02);
-            box-shadow: 0 35px 70px -12px rgba(0, 0, 0, 0.7),
-                        0 0 0 1px rgba(255, 255, 255, 0.2);
-        }
-
-        .hero-title {
+        
+        .hero-text h1 {
             font-size: 3.5rem;
             font-weight: 700;
             margin-bottom: 1rem;
-            background: linear-gradient(135deg, var(--text-primary) 0%, var(--text-secondary) 100%);
+            background: linear-gradient(135deg, #667eea, #764ba2);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
-            line-height: 1.1;
-        }
-
-        .hero-subtitle {
-            font-size: 1.5rem;
-            color: var(--text-secondary);
-            margin-bottom: 2rem;
-            font-weight: 400;
-            line-height: 1.4;
-        }
-
-        .hero-tagline {
-            font-size: 1.25rem;
-            color: var(--accent-color);
-            margin-bottom: 2rem;
-            font-weight: 500;
-        }
-
-        /* Content Sections */
-        .content-section {
-            padding: 4rem 0;
-            border-bottom: 1px solid var(--border-color);
-        }
-
-        .content-section:last-child {
-            border-bottom: none;
-        }
-
-        .section-divider {
-            text-align: center;
-            font-size: 2rem;
-            color: var(--text-muted);
-            margin: 2rem 0;
-            font-weight: 300;
-        }
-
-        .section-title {
-            font-size: 2.5rem;
-            font-weight: 600;
-            margin-bottom: 2rem;
-            color: var(--text-primary);
             line-height: 1.2;
         }
-
-        .section-content {
-            font-size: 1.125rem;
-            line-height: 1.8;
-            color: var(--text-secondary);
-            max-width: 800px;
-        }
-
-        .section-content p {
-            margin-bottom: 1.5rem;
-        }
-
-        .section-content p:last-child {
-            margin-bottom: 0;
-        }
-
-        .highlight {
-            color: var(--text-primary);
+        
+        .hero-text .subtitle {
+            font-size: 1.5rem;
+            color: #4a5568;
+            margin-bottom: 0.5rem;
             font-weight: 500;
         }
-
-        /* Special Sections */
-        .mission-section {
-            background: linear-gradient(135deg, var(--secondary-color) 0%, var(--primary-color) 100%);
+        
+        .hero-text .tagline {
+            font-size: 1.1rem;
+            color: #718096;
+            margin-bottom: 2rem;
+        }
+        
+        .cta-button {
+            display: inline-block;
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            color: white;
+            padding: 1rem 2rem;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            box-shadow: 0 10px 20px rgba(102, 126, 234, 0.3);
+        }
+        
+        .cta-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 15px 30px rgba(102, 126, 234, 0.4);
+        }
+        
+        .profile-photo {
+            width: 300px;
+            height: 300px;
+            border-radius: 24px;
+            object-fit: cover;
+            object-position: center top;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
+            border: 4px solid rgba(255, 255, 255, 0.8);
+        }
+        
+        .section {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(20px);
             border-radius: 20px;
-            padding: 3rem;
+            padding: 2.5rem;
+            margin-bottom: 2rem;
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.08);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+        
+        .section h2 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 1.5rem;
+            color: #2d3748;
+        }
+        
+        .section-intro {
+            font-size: 1.3rem;
+            color: #4a5568;
+            margin-bottom: 2rem;
+            font-weight: 500;
+        }
+        
+        .divider {
+            width: 60px;
+            height: 3px;
+            background: linear-gradient(135deg, #667eea, #764ba2);
             margin: 2rem 0;
-            position: relative;
-            overflow: hidden;
+            border-radius: 2px;
         }
-
-        .mission-section::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: linear-gradient(135deg, rgba(59, 130, 246, 0.05) 0%, rgba(124, 58, 237, 0.05) 100%);
-            pointer-events: none;
+        
+        .content-text {
+            font-size: 1.1rem;
+            color: #2d3748;
+            line-height: 1.8;
+            margin-bottom: 1.5rem;
         }
-
-        .mission-content {
-            position: relative;
-            z-index: 1;
-        }
-
-        .quote {
-            font-size: 1.5rem;
-            font-style: italic;
-            color: var(--accent-color);
-            text-align: center;
-            margin: 2rem 0;
-            font-weight: 400;
-            line-height: 1.4;
-        }
-
-        /* Lists */
-        .principles-list {
-            list-style: none;
-            margin: 2rem 0;
-        }
-
-        .principles-list li {
-            padding: 0.75rem 0;
-            padding-left: 2rem;
-            position: relative;
-            color: var(--text-secondary);
-            font-size: 1.125rem;
-        }
-
-        .principles-list li::before {
-            content: '→';
-            position: absolute;
-            left: 0;
-            color: var(--accent-color);
+        
+        .highlight {
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
             font-weight: 600;
         }
-
-        .fun-facts {
-            background: var(--secondary-color);
-            border-radius: 15px;
-            padding: 2.5rem;
+        
+        .principles {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
             margin: 2rem 0;
         }
-
-        .fun-facts h3 {
-            font-size: 1.75rem;
-            margin-bottom: 1rem;
-            color: var(--text-primary);
+        
+        .principle {
+            background: rgba(102, 126, 234, 0.1);
+            border-radius: 16px;
+            padding: 1.5rem;
+            border-left: 4px solid #667eea;
         }
-
-        .fun-facts .subtitle {
-            color: var(--text-muted);
-            margin-bottom: 1.5rem;
+        
+        .principle h3 {
+            font-size: 1.2rem;
+            font-weight: 600;
+            color: #2d3748;
+            margin-bottom: 0.5rem;
+        }
+        
+        .principle p {
+            color: #4a5568;
             font-size: 1rem;
         }
-
-        .fun-facts ul {
-            list-style: none;
+        
+        .fun-facts {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1.5rem;
+            margin: 2rem 0;
         }
-
-        .fun-facts li {
-            padding: 0.5rem 0;
-            padding-left: 1.5rem;
-            position: relative;
-            color: var(--text-secondary);
-            font-size: 1.125rem;
+        
+        .fun-fact {
+            background: rgba(118, 75, 162, 0.1);
+            border-radius: 16px;
+            padding: 1.5rem;
+            border-left: 4px solid #764ba2;
         }
-
-        .fun-facts li::before {
-            content: '⚡';
-            position: absolute;
-            left: 0;
-        }
-
-        /* CTA Section */
-        .cta-section {
-            text-align: center;
-            padding: 4rem 3rem;
-            background: linear-gradient(135deg, var(--gradient-start) 0%, var(--gradient-end) 100%);
-            margin: 3rem 0;
-            border-radius: 20px;
-        }
-
-        .cta-text {
+        
+        .fun-fact::before {
+            content: "⚡";
             font-size: 1.5rem;
+            margin-right: 0.5rem;
+        }
+        
+        .contact-section {
+            text-align: center;
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            color: white;
+            border-radius: 20px;
+            padding: 3rem;
+            margin-top: 3rem;
+        }
+        
+        .contact-section h2 {
+            color: white;
             margin-bottom: 1rem;
-            color: var(--text-primary);
-            font-weight: 500;
         }
-
-        .contact-info {
-            font-size: 1.125rem;
-            color: rgba(255, 255, 255, 0.9);
+        
+        .contact-section p {
+            font-size: 1.2rem;
+            margin-bottom: 2rem;
+            opacity: 0.9;
         }
-
+        
+        .contact-button {
+            display: inline-block;
+            background: rgba(255, 255, 255, 0.2);
+            border: 2px solid white;
+            color: white;
+            padding: 1rem 2rem;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            backdrop-filter: blur(10px);
+        }
+        
+        .contact-button:hover {
+            background: white;
+            color: #667eea;
+            transform: translateY(-2px);
+        }
+        
+        @media (max-width: 768px) {
+            .hero-content {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+            
+            .hero-text h1 {
+                font-size: 2.5rem;
+            }
+            
+            .profile-photo {
+                width: 250px;
+                height: 250px;
+            }
+            
+            .container {
+                padding: 1rem;
+            }
+            
+            .hero, .section {
+                padding: 2rem;
+            }
+            
+            .section h2 {
+                font-size: 2rem;
+            }
+        }
+        
         /* Animations */
         @keyframes fadeInUp {
             from {
@@ -296,222 +264,142 @@
                 transform: translateY(0);
             }
         }
-
-        @keyframes fadeInRight {
-            from {
-                opacity: 0;
-                transform: translateX(30px);
-            }
-            to {
-                opacity: 1;
-                transform: translateX(0);
-            }
+        
+        .hero, .section {
+            animation: fadeInUp 0.8s ease-out;
         }
-
-        .fade-in {
-            opacity: 0;
-            transform: translateY(30px);
-            transition: all 0.6s ease;
+        
+        .hero {
+            animation-delay: 0.1s;
         }
-
-        .fade-in.visible {
-            opacity: 1;
-            transform: translateY(0);
+        
+        .section:nth-child(2) {
+            animation-delay: 0.2s;
         }
-
-        /* Responsive Design */
-        @media (max-width: 768px) {
-            .container {
-                padding: 0 1rem;
-            }
-
-            .hero-content {
-                grid-template-columns: 1fr;
-                gap: 2rem;
-                text-align: center;
-            }
-
-            .hero-image {
-                order: -1;
-            }
-
-            .profile-image {
-                width: 300px;
-                height: 375px;
-            }
-
-            .hero-title {
-                font-size: 2.5rem;
-            }
-
-            .hero-subtitle {
-                font-size: 1.25rem;
-            }
-
-            .section-title {
-                font-size: 2rem;
-            }
-
-            .content-section {
-                padding: 3rem 0;
-            }
-
-            .mission-section,
-            .fun-facts {
-                padding: 2rem;
-            }
-
-            .cta-section {
-                padding: 3rem 2rem;
-            }
+        
+        .section:nth-child(3) {
+            animation-delay: 0.3s;
         }
-
-        @media (max-width: 480px) {
-            .hero-title {
-                font-size: 2rem;
-            }
-
-            .profile-image {
-                width: 250px;
-                height: 312px;
-            }
-
-            .section-title {
-                font-size: 1.75rem;
-            }
-
-            .quote {
-                font-size: 1.25rem;
-            }
+        
+        .section:nth-child(4) {
+            animation-delay: 0.4s;
         }
     </style>
 </head>
 <body>
-    <!-- Hero Section -->
-    <section class="hero">
-        <div class="container">
+    <div class="container">
+        <div class="hero">
             <div class="hero-content">
                 <div class="hero-text">
-                    <h1 class="hero-title">Meet Rohit Chopra</h1>
-                    <p class="hero-subtitle">Co-Founder, Space Match<br>Harvard-educated. Built in the trenches.</p>
-                    <p class="hero-tagline">I build systems that scale trust.</p>
+                    <h1>Meet Rohit Chopra</h1>
+                    <p class="subtitle">Co-Founder, Space Match</p>
+                    <p class="tagline">Harvard-educated. Built in the trenches.</p>
+                    <a href="#contact" class="cta-button">Let's Connect</a>
                 </div>
-                <div class="hero-image">
-                    <img src="rohit-headshot.PNG" alt="Rohit Chopra" class="profile-image" onerror="this.style.display='none';">
+                <div class="profile-container">
+                    <img src="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQEAYABgAAD/2wBDAAMCAgMCAgMDAwMEAwMEBQgFBQQEBQoHBwYIDAoMDAsKCwsNDhIQDQ4RDgsLEBYQERMUFRUVDA8XGBYUGBIUFRT/2wBDAQMEBAUEBQkFBQkUDQsNFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBT/wAARCAEsASwDASIAAhEBAxEB/8QAHwAAAQUBAQEBAQEAAAAAAAAAAAECAwQFBgcICQoL/8QAtRAAAgEDAwIEAwUFBAQAAAF9AQIDAAQRBRIhMUEGE1FhByJxFDKBkaEII0KxwRVS0fAkM2JyggkKFhcYGRolJicoKSo0NTY3ODk6Q0RFRkdISUpTVFVWV1hZWmNkZWZnaGlqc3R1dnd4eXqDhIWGh4iJipKTlJWWl5iZmqKjpKWmp6ipqrKztLW2t7i5usLDxMXGx8jJytLT1NXW19jZ2uHi4+Tl5ufo6erx8vP09fb3+Pn6/8QAHwEAAwEBAQEBAQEBAQAAAAAAAAECAwQFBgcICQoL/8QAtREAAgECBAQDBAcFBAQAAQJ3AAECAxEEBSExBhJBUWEHInGBEzKRobHBCNHw8SMkNEJSM3KCkqLwJjNDU2N0grLh8PVGsjRTVGd4eXqCh4SFhoeIiYqSk5SVlpeYmZqio6Slpqeoqaqys7S1tre4ubrCw8TFxsfIycrS09TV1tfY2drh4uPk5ebn6Onq8vP09fb3+Pn6/9oADAMBAAIRAxEAPwD9/KKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKAC
                 </div>
             </div>
         </div>
-    </section>
-
-    <!-- Main Content -->
-    <div class="container">
-        <div class="section-divider">⸻</div>
-
-        <section class="content-section fade-in">
-            <div class="section-content">
-                <p>I'm an <span class="highlight">operator, technologist, and systems thinker</span> — currently co-building Space Match, a platform reimagining how commercial real estate is leased in India.</p>
-                
-                <p>For over 20 years, I've led digital transformation at Fortune 500 companies, turned around struggling businesses, and built multiple ventures from scratch. My lens has always been the same:</p>
-                
-                <div class="quote">Find the friction. Eliminate the noise. Build what compounds.</div>
-            </div>
-        </section>
-
-        <div class="section-divider">⸻</div>
-
-        <section class="content-section fade-in">
-            <h2 class="section-title">Why Space Match</h2>
-            <div class="mission-section">
-                <div class="mission-content">
-                    <div class="section-content">
-                        <p>The idea for Space Match was born during a conversation with my co-founder Hitesh, while he was visiting me in the U.S. We started talking about India's commercial real estate landscape — full of gatekeeping, guesswork, and outdated systems. It was clear:</p>
-                        
-                        <div class="quote">This market doesn't need another listing site. It needs infrastructure.</div>
-                        
-                        <p>So we're building exactly that — a <span class="highlight">high-trust platform powered by clean data, AI agents, and a product-first experience</span> that helps users go from search to signed lease without the chaos.</p>
-                        
-                        <p><span class="highlight">It's early, but we're obsessed with the craft. And the conviction is real.</span></p>
-                    </div>
+        
+        <div class="section">
+            <h2>I build systems that scale trust.</h2>
+            <div class="divider"></div>
+            <p class="content-text">
+                I'm an operator, technologist, and systems thinker — currently co-building <span class="highlight">Space Match</span>, a platform reimagining how commercial real estate is leased in India.
+            </p>
+            <p class="content-text">
+                For over 20 years, I've led digital transformation at Fortune 500 companies, turned around struggling businesses, and built multiple ventures from scratch. My lens has always been the same:
+            </p>
+            <p class="content-text">
+                <strong>Find the friction. Eliminate the noise. Build what compounds.</strong>
+            </p>
+        </div>
+        
+        <div class="section">
+            <h2>Why Space Match</h2>
+            <div class="divider"></div>
+            <p class="content-text">
+                The idea for Space Match was born during a conversation with my co-founder Hitesh, while he was visiting me in the U.S.
+            </p>
+            <p class="content-text">
+                We started talking about India's commercial real estate landscape — full of gatekeeping, guesswork, and outdated systems. It was clear:
+            </p>
+            <p class="content-text">
+                <span class="highlight">This market doesn't need another listing site. It needs infrastructure.</span>
+            </p>
+            <p class="content-text">
+                So we're building exactly that — a high-trust platform powered by clean data, AI agents, and a product-first experience that helps users go from search to signed lease without the chaos.
+            </p>
+            <p class="content-text">
+                It's early, but we're obsessed with the craft. And the conviction is real.
+            </p>
+        </div>
+        
+        <div class="section">
+            <h2>How I Operate</h2>
+            <div class="divider"></div>
+            <p class="content-text">
+                I've always believed the best builders have one foot in the code and the other in the real world.
+            </p>
+            <p class="content-text">
+                I studied at Harvard, but learned the hard stuff from doing — scaling operations, fixing what's broken, and questioning default assumptions at every turn.
+            </p>
+            <p class="content-text">
+                I work fast, bias toward clarity, and care deeply about:
+            </p>
+            <div class="principles">
+                <div class="principle">
+                    <h3>Building leverage through automation</h3>
+                    <p>Systems that work harder than people do</p>
+                </div>
+                <div class="principle">
+                    <h3>Creating cultures of ownership, not control</h3>
+                    <p>Trust scales better than micromanagement</p>
+                </div>
+                <div class="principle">
+                    <h3>Designing products that feel inevitable</h3>
+                    <p>Great products feel obvious in hindsight</p>
                 </div>
             </div>
-        </section>
-
-        <div class="section-divider">⸻</div>
-
-        <section class="content-section fade-in">
-            <h2 class="section-title">How I Operate</h2>
-            <div class="section-content">
-                <p>I've always believed <span class="highlight">the best builders have one foot in the code and the other in the real world.</span></p>
-                
-                <p>I studied at Harvard, but learned the hard stuff from doing — scaling operations, fixing what's broken, and questioning default assumptions at every turn.</p>
-                
-                <p>I work fast, bias toward clarity, and care deeply about:</p>
-                
-                <ul class="principles-list">
-                    <li>Building leverage through automation</li>
-                    <li>Creating cultures of ownership, not control</li>
-                    <li>Designing products that feel inevitable</li>
-                </ul>
-                
-                <p><span class="highlight">If you're a builder, operator, or investor — and this resonates — we should talk.</span></p>
-            </div>
-        </section>
-
-        <div class="section-divider">⸻</div>
-
-        <section class="content-section fade-in">
+            <p class="content-text">
+                If you're a builder, operator, or investor — and this resonates — we should talk.
+            </p>
+        </div>
+        
+        <div class="section">
+            <h2>⚡ Not Your Usual Bio</h2>
+            <p class="section-intro">(A few things that don't fit neatly into LinkedIn)</p>
+            <div class="divider"></div>
             <div class="fun-facts">
-                <h3>⚡ Not Your Usual Bio</h3>
-                <p class="subtitle">(A few things that don't fit neatly into LinkedIn)</p>
-                <ul>
-                    <li>Ran a 4:32 mile (systems matter at every level)</li>
-                    <li>Harvard-educated, but built in the trenches</li>
-                    <li>Doesn't love meetings — does love breaking bottlenecks</li>
-                    <li>Thinks in frameworks, builds in loops</li>
-                    <li>Believes clarity > control and incentives > rules</li>
-                </ul>
+                <div class="fun-fact">
+                    <strong>Ran a 4:32 mile</strong><br>
+                    Systems matter at every level
+                </div>
+                <div class="fun-fact">
+                    <strong>Harvard-educated, but built in the trenches</strong><br>
+                    Theory meets practice
+                </div>
+                <div class="fun-fact">
+                    <strong>Doesn't love meetings — does love breaking bottlenecks</strong><br>
+                    Progress over process
+                </div>
+                <div class="fun-fact">
+                    <strong>Thinks in frameworks, builds in loops</strong><br>
+                    Iteration is everything
+                </div>
+                <div class="fun-fact">
+                    <strong>Believes clarity > control and incentives > rules</strong><br>
+                    People over policies
+                </div>
             </div>
-        </section>
-
-        <section class="cta-section fade-in">
-            <div class="cta-text">Ready to build something extraordinary together?</div>
-            <div class="contact-info">Let's connect and explore the possibilities.</div>
-        </section>
+        </div>
+        
+        <div class="contact-section" id="contact">
+            <h2>Ready to build something great?</h2>
+            <p>Whether you're a world-class builder looking for your next challenge or an investor backing the infrastructure of tomorrow, let's connect.</p>
+            <a href="mailto:rohit@spacematch.com" class="contact-button">Get in Touch</a>
+        </div>
     </div>
-
-    <script>
-        // Intersection Observer for fade-in animations
-        const observerOptions = {
-            threshold: 0.1,
-            rootMargin: '0px 0px -50px 0px'
-        };
-
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add('visible');
-                }
-            });
-        }, observerOptions);
-
-        // Observe all fade-in elements
-        document.querySelectorAll('.fade-in').forEach(el => {
-            observer.observe(el);
-        });
-
-        // Smooth scrolling for better UX
-        document.documentElement.style.scrollBehavior = 'smooth';
-
-        // Image loading fallback
-        document.addEventListener('DOMContentLoaded', function() {
-            const img = document.querySelector('.profile-image');
-            if (img) {
-                img.addEventListener('error', function() {
-                    console.log('Image failed to load:', this.src);
-                    // You could add a placeholder or alternative image here
-                });
-            }
-        });
-    </script>
 </body>
 </html>
