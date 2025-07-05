@@ -1,225 +1,516 @@
 <!DOCTYPE html>
-<html lang="en" class="scroll-smooth">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Meet Rohit Chopra - Co-Founder, Space Match</title>
-    
-    <!-- Tailwind CSS -->
-    <script src="https://cdn.tailwindcss.com"></script>
-    
-    <!-- Google Fonts: Inter -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-
+    <title>Rohit Chopra - Co-Founder, Space Match</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <style>
-        /* Custom styles to complement Tailwind */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary-color: #0a0a0a;
+            --secondary-color: #1a1a1a;
+            --accent-color: #3b82f6;
+            --text-primary: #ffffff;
+            --text-secondary: #a1a1aa;
+            --text-muted: #71717a;
+            --border-color: #27272a;
+            --gradient-start: #1e40af;
+            --gradient-end: #7c3aed;
+        }
+
         body {
-            font-family: 'Inter', sans-serif;
-            background-color: #111827; /* A dark, modern background */
-            color: #E5E7EB; /* A light, readable text color */
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            background: var(--primary-color);
+            color: var(--text-primary);
+            line-height: 1.6;
+            overflow-x: hidden;
         }
 
-        /* Custom styling for the horizontal rule */
-        .custom-hr {
-            border: 0;
-            height: 1px;
-            background-image: linear-gradient(to right, rgba(229, 231, 235, 0), rgba(229, 231, 235, 0.5), rgba(229, 231, 235, 0));
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
         }
-        
-        /* Styles for scroll-triggered animations */
-        .animate-on-scroll {
+
+        /* Hero Section */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            position: relative;
+            background: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 100%);
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: radial-gradient(circle at 30% 20%, rgba(59, 130, 246, 0.1) 0%, transparent 50%),
+                        radial-gradient(circle at 70% 80%, rgba(124, 58, 237, 0.1) 0%, transparent 50%);
+            pointer-events: none;
+        }
+
+        .hero-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+            position: relative;
+            z-index: 1;
+            width: 100%;
+        }
+
+        .hero-text {
+            animation: fadeInUp 1s ease-out;
+        }
+
+        .hero-image {
+            display: flex;
+            justify-content: center;
+            animation: fadeInRight 1s ease-out 0.3s both;
+        }
+
+        .profile-image {
+            width: 400px;
+            height: 500px;
+            border-radius: 20px;
+            object-fit: cover;
+            object-position: center top;
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5),
+                        0 0 0 1px rgba(255, 255, 255, 0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            background: var(--secondary-color);
+        }
+
+        .profile-image:hover {
+            transform: translateY(-10px) scale(1.02);
+            box-shadow: 0 35px 70px -12px rgba(0, 0, 0, 0.7),
+                        0 0 0 1px rgba(255, 255, 255, 0.2);
+        }
+
+        .hero-title {
+            font-size: 3.5rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            background: linear-gradient(135deg, var(--text-primary) 0%, var(--text-secondary) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            line-height: 1.1;
+        }
+
+        .hero-subtitle {
+            font-size: 1.5rem;
+            color: var(--text-secondary);
+            margin-bottom: 2rem;
+            font-weight: 400;
+            line-height: 1.4;
+        }
+
+        .hero-tagline {
+            font-size: 1.25rem;
+            color: var(--accent-color);
+            margin-bottom: 2rem;
+            font-weight: 500;
+        }
+
+        /* Content Sections */
+        .content-section {
+            padding: 4rem 0;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .content-section:last-child {
+            border-bottom: none;
+        }
+
+        .section-divider {
+            text-align: center;
+            font-size: 2rem;
+            color: var(--text-muted);
+            margin: 2rem 0;
+            font-weight: 300;
+        }
+
+        .section-title {
+            font-size: 2.5rem;
+            font-weight: 600;
+            margin-bottom: 2rem;
+            color: var(--text-primary);
+            line-height: 1.2;
+        }
+
+        .section-content {
+            font-size: 1.125rem;
+            line-height: 1.8;
+            color: var(--text-secondary);
+            max-width: 800px;
+        }
+
+        .section-content p {
+            margin-bottom: 1.5rem;
+        }
+
+        .section-content p:last-child {
+            margin-bottom: 0;
+        }
+
+        .highlight {
+            color: var(--text-primary);
+            font-weight: 500;
+        }
+
+        /* Special Sections */
+        .mission-section {
+            background: linear-gradient(135deg, var(--secondary-color) 0%, var(--primary-color) 100%);
+            border-radius: 20px;
+            padding: 3rem;
+            margin: 2rem 0;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .mission-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(135deg, rgba(59, 130, 246, 0.05) 0%, rgba(124, 58, 237, 0.05) 100%);
+            pointer-events: none;
+        }
+
+        .mission-content {
+            position: relative;
+            z-index: 1;
+        }
+
+        .quote {
+            font-size: 1.5rem;
+            font-style: italic;
+            color: var(--accent-color);
+            text-align: center;
+            margin: 2rem 0;
+            font-weight: 400;
+            line-height: 1.4;
+        }
+
+        /* Lists */
+        .principles-list {
+            list-style: none;
+            margin: 2rem 0;
+        }
+
+        .principles-list li {
+            padding: 0.75rem 0;
+            padding-left: 2rem;
+            position: relative;
+            color: var(--text-secondary);
+            font-size: 1.125rem;
+        }
+
+        .principles-list li::before {
+            content: '→';
+            position: absolute;
+            left: 0;
+            color: var(--accent-color);
+            font-weight: 600;
+        }
+
+        .fun-facts {
+            background: var(--secondary-color);
+            border-radius: 15px;
+            padding: 2.5rem;
+            margin: 2rem 0;
+        }
+
+        .fun-facts h3 {
+            font-size: 1.75rem;
+            margin-bottom: 1rem;
+            color: var(--text-primary);
+        }
+
+        .fun-facts .subtitle {
+            color: var(--text-muted);
+            margin-bottom: 1.5rem;
+            font-size: 1rem;
+        }
+
+        .fun-facts ul {
+            list-style: none;
+        }
+
+        .fun-facts li {
+            padding: 0.5rem 0;
+            padding-left: 1.5rem;
+            position: relative;
+            color: var(--text-secondary);
+            font-size: 1.125rem;
+        }
+
+        .fun-facts li::before {
+            content: '⚡';
+            position: absolute;
+            left: 0;
+        }
+
+        /* CTA Section */
+        .cta-section {
+            text-align: center;
+            padding: 4rem 3rem;
+            background: linear-gradient(135deg, var(--gradient-start) 0%, var(--gradient-end) 100%);
+            margin: 3rem 0;
+            border-radius: 20px;
+        }
+
+        .cta-text {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            color: var(--text-primary);
+            font-weight: 500;
+        }
+
+        .contact-info {
+            font-size: 1.125rem;
+            color: rgba(255, 255, 255, 0.9);
+        }
+
+        /* Animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes fadeInRight {
+            from {
+                opacity: 0;
+                transform: translateX(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        .fade-in {
             opacity: 0;
-            transform: translateY(20px);
-            transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+            transform: translateY(30px);
+            transition: all 0.6s ease;
         }
 
-        .animate-on-scroll.is-visible {
+        .fade-in.visible {
             opacity: 1;
             transform: translateY(0);
         }
-        
-        /* Container for the hero image to ensure layout stability */
-        .hero-image-container {
-            background-color: #1F2937; /* Fallback color if image fails */
-            border-radius: 0.5rem;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            min-height: 450px; /* Ensures space is reserved */
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .container {
+                padding: 0 1rem;
+            }
+
+            .hero-content {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+                text-align: center;
+            }
+
+            .hero-image {
+                order: -1;
+            }
+
+            .profile-image {
+                width: 300px;
+                height: 375px;
+            }
+
+            .hero-title {
+                font-size: 2.5rem;
+            }
+
+            .hero-subtitle {
+                font-size: 1.25rem;
+            }
+
+            .section-title {
+                font-size: 2rem;
+            }
+
+            .content-section {
+                padding: 3rem 0;
+            }
+
+            .mission-section,
+            .fun-facts {
+                padding: 2rem;
+            }
+
+            .cta-section {
+                padding: 3rem 2rem;
+            }
         }
 
-        /* Ensure the hero image is prominent and not cropped badly */
-        .hero-image {
-            object-fit: cover;
-            object-position: top; /* This is key to not cutting off the head */
-            height: 60vh;
-            max-height: 700px;
-            width: 100%;
+        @media (max-width: 480px) {
+            .hero-title {
+                font-size: 2rem;
+            }
+
+            .profile-image {
+                width: 250px;
+                height: 312px;
+            }
+
+            .section-title {
+                font-size: 1.75rem;
+            }
+
+            .quote {
+                font-size: 1.25rem;
+            }
         }
     </style>
 </head>
-<body class="antialiased">
-
-    <!-- Main Container -->
-    <div class="max-w-4xl mx-auto px-6 py-12 md:py-24">
-
-        <!-- Header Section -->
-        <header class="text-center mb-16">
-            <!-- Image Container: Provides a stable background and size -->
-            <div class="w-full max-w-md mx-auto mb-8 hero-image-container animate-on-scroll">
-                 <img src="rohit-headshot.jpg" 
-                      alt="Rohit Chopra Headshot" 
-                      class="w-full rounded-lg shadow-2xl hero-image"
-                      onerror="this.onerror=null;this.src='https://placehold.co/600x700/1F2937/E5E7EB?text=Rohit+Chopra';">
-            </div>
-            <div class="animate-on-scroll" style="transition-delay: 100ms;">
-                <h1 class="text-4xl md:text-5xl font-extrabold text-white tracking-tight">Meet Rohit Chopra</h1>
-                <p class="mt-3 text-lg md:text-xl text-indigo-400 font-semibold">Co-Founder, Space Match</p>
-                <p class="mt-2 text-base text-gray-400">Harvard-educated. Built in the trenches.</p>
-            </div>
-        </header>
-
-        <main>
-            <!-- Section 1: Core Philosophy -->
-            <section class="my-20 animate-on-scroll" style="transition-delay: 200ms;">
-                <blockquote class="text-center">
-                    <p class="text-3xl md:text-4xl font-bold italic text-white">"I build systems that scale trust."</p>
-                </blockquote>
-            </section>
-
-            <hr class="custom-hr my-16">
-
-            <!-- Section 2: Introduction -->
-            <section class="my-16 animate-on-scroll">
-                <p class="text-lg leading-relaxed text-gray-300">
-                    I’m an operator, technologist, and systems thinker — currently co-building <a href="#" class="text-indigo-400 hover:text-indigo-300 font-semibold">Space Match</a>, a platform reimagining how commercial real estate is leased in India.
-                </p>
-                <p class="mt-6 text-lg leading-relaxed text-gray-300">
-                    For over 20 years, I’ve led digital transformation at Fortune 500 companies, turned around struggling businesses, and built multiple ventures from scratch. My lens has always been the same:
-                </p>
-                <div class="mt-6 text-center text-xl font-medium text-gray-200 space-y-2">
-                    <p>Find the friction.</p>
-                    <p>Eliminate the noise.</p>
-                    <p>Build what compounds.</p>
+<body>
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <div class="hero-text">
+                    <h1 class="hero-title">Meet Rohit Chopra</h1>
+                    <p class="hero-subtitle">Co-Founder, Space Match<br>Harvard-educated. Built in the trenches.</p>
+                    <p class="hero-tagline">I build systems that scale trust.</p>
                 </div>
-            </section>
+                <div class="hero-image">
+                    <img src="rohit-headshot.PNG" alt="Rohit Chopra" class="profile-image" onerror="this.style.display='none';">
+                </div>
+            </div>
+        </div>
+    </section>
 
-            <hr class="custom-hr my-16">
+    <!-- Main Content -->
+    <div class="container">
+        <div class="section-divider">⸻</div>
 
-            <!-- Section 3: Why Space Match -->
-            <section class="my-16 animate-on-scroll">
-                <h2 class="text-3xl font-bold text-white mb-6">Why Space Match</h2>
-                <div class="space-y-6 text-lg leading-relaxed text-gray-300">
-                    <p>
-                        The idea for Space Match was born during a conversation with my co-founder Hitesh, while he was visiting me in the U.S. We started talking about India’s commercial real estate landscape — full of gatekeeping, guesswork, and outdated systems. It was clear:
-                    </p>
-                    <div class="bg-gray-800 p-6 rounded-lg border border-gray-700">
-                        <p class="text-xl font-semibold italic text-center text-white">This market doesn’t need another listing site. It needs infrastructure.</p>
+        <section class="content-section fade-in">
+            <div class="section-content">
+                <p>I'm an <span class="highlight">operator, technologist, and systems thinker</span> — currently co-building Space Match, a platform reimagining how commercial real estate is leased in India.</p>
+                
+                <p>For over 20 years, I've led digital transformation at Fortune 500 companies, turned around struggling businesses, and built multiple ventures from scratch. My lens has always been the same:</p>
+                
+                <div class="quote">Find the friction. Eliminate the noise. Build what compounds.</div>
+            </div>
+        </section>
+
+        <div class="section-divider">⸻</div>
+
+        <section class="content-section fade-in">
+            <h2 class="section-title">Why Space Match</h2>
+            <div class="mission-section">
+                <div class="mission-content">
+                    <div class="section-content">
+                        <p>The idea for Space Match was born during a conversation with my co-founder Hitesh, while he was visiting me in the U.S. We started talking about India's commercial real estate landscape — full of gatekeeping, guesswork, and outdated systems. It was clear:</p>
+                        
+                        <div class="quote">This market doesn't need another listing site. It needs infrastructure.</div>
+                        
+                        <p>So we're building exactly that — a <span class="highlight">high-trust platform powered by clean data, AI agents, and a product-first experience</span> that helps users go from search to signed lease without the chaos.</p>
+                        
+                        <p><span class="highlight">It's early, but we're obsessed with the craft. And the conviction is real.</span></p>
                     </div>
-                    <p>
-                        So we’re building exactly that — a high-trust platform powered by clean data, AI agents, and a product-first experience that helps users go from search to signed lease without the chaos.
-                    </p>
-                    <p>
-                        It’s early, but we’re obsessed with the craft. And the conviction is real.
-                    </p>
                 </div>
-            </section>
+            </div>
+        </section>
 
-            <hr class="custom-hr my-16">
+        <div class="section-divider">⸻</div>
 
-            <!-- Section 4: How I Operate -->
-            <section class="my-16 animate-on-scroll">
-                <h2 class="text-3xl font-bold text-white mb-6">How I Operate</h2>
-                <div class="space-y-6 text-lg leading-relaxed text-gray-300">
-                    <p>
-                        I’ve always believed the best builders have one foot in the code and the other in the real world. I studied at Harvard, but learned the hard stuff from doing — scaling operations, fixing what’s broken, and questioning default assumptions at every turn.
-                    </p>
-                    <p>
-                        I work fast, bias toward clarity, and care deeply about:
-                    </p>
-                    <ul class="list-none space-y-4 mt-4">
-                        <li class="flex items-start">
-                            <svg class="w-6 h-6 text-indigo-400 mr-3 mt-1 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 3v2m6-2v2M9 19v2m6-2v2M5 9H3m2 6H3m18-6h-2m2 6h-2M12 6V3m0 18v-3"></path></svg>
-                            <span>Building leverage through <span class="font-semibold text-white">automation</span></span>
-                        </li>
-                        <li class="flex items-start">
-                             <svg class="w-6 h-6 text-indigo-400 mr-3 mt-1 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"></path></svg>
-                            <span>Creating cultures of <span class="font-semibold text-white">ownership</span>, not control</span>
-                        </li>
-                        <li class="flex items-start">
-                             <svg class="w-6 h-6 text-indigo-400 mr-3 mt-1 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 10l-2 1m0 0l-2-1m2 1v2.5M20 7l-2 1m2-1l-2-1m2 1v2.5M14 4l-2-1-2 1M4 7l2 1M4 7l2-1M4 7v2.5M12 21l-2-1m2 1l2-1m-2 1v-2.5M6 18l-2-1v-2.5M18 18l2-1v-2.5"></path></svg>
-                            <span>Designing products that feel <span class="font-semibold text-white">inevitable</span></span>
-                        </li>
-                    </ul>
-                </div>
-            </section>
+        <section class="content-section fade-in">
+            <h2 class="section-title">How I Operate</h2>
+            <div class="section-content">
+                <p>I've always believed <span class="highlight">the best builders have one foot in the code and the other in the real world.</span></p>
+                
+                <p>I studied at Harvard, but learned the hard stuff from doing — scaling operations, fixing what's broken, and questioning default assumptions at every turn.</p>
+                
+                <p>I work fast, bias toward clarity, and care deeply about:</p>
+                
+                <ul class="principles-list">
+                    <li>Building leverage through automation</li>
+                    <li>Creating cultures of ownership, not control</li>
+                    <li>Designing products that feel inevitable</li>
+                </ul>
+                
+                <p><span class="highlight">If you're a builder, operator, or investor — and this resonates — we should talk.</span></p>
+            </div>
+        </section>
 
-            <hr class="custom-hr my-16">
+        <div class="section-divider">⸻</div>
 
-            <!-- Section 5: Not Your Usual Bio -->
-            <section class="my-16 animate-on-scroll">
-                <div class="bg-gray-800/50 border border-gray-700 rounded-lg p-8">
-                    <h2 class="text-2xl font-bold text-white mb-6 flex items-center">
-                        <span class="text-3xl mr-3">⚡</span> Not Your Usual Bio
-                    </h2>
-                    <p class="text-sm text-gray-400 mb-6">(A few things that don’t fit neatly into LinkedIn)</p>
-                    <ul class="space-y-4 text-gray-300 text-lg">
-                        <li class="flex items-center"><span class="text-indigo-400 mr-4">&#8227;</span>Ran a 4:32 mile (systems matter at every level)</li>
-                        <li class="flex items-center"><span class="text-indigo-400 mr-4">&#8227;</span>Harvard-educated, but built in the trenches</li>
-                        <li class="flex items-center"><span class="text-indigo-400 mr-4">&#8227;</span>Doesn’t love meetings — does love breaking bottlenecks</li>
-                        <li class="flex items-center"><span class="text-indigo-400 mr-4">&#8227;</span>Thinks in frameworks, builds in loops</li>
-                        <li class="flex items-center"><span class="text-indigo-400 mr-4">&#8227;</span>Believes clarity > control and incentives > rules</li>
-                    </ul>
-                </div>
-            </section>
+        <section class="content-section fade-in">
+            <div class="fun-facts">
+                <h3>⚡ Not Your Usual Bio</h3>
+                <p class="subtitle">(A few things that don't fit neatly into LinkedIn)</p>
+                <ul>
+                    <li>Ran a 4:32 mile (systems matter at every level)</li>
+                    <li>Harvard-educated, but built in the trenches</li>
+                    <li>Doesn't love meetings — does love breaking bottlenecks</li>
+                    <li>Thinks in frameworks, builds in loops</li>
+                    <li>Believes clarity > control and incentives > rules</li>
+                </ul>
+            </div>
+        </section>
 
-            <!-- Call to Action -->
-            <section class="text-center mt-24 mb-12 animate-on-scroll">
-                <h2 class="text-3xl font-bold text-white">Let's Build Together.</h2>
-                <p class="mt-4 text-lg text-gray-400 max-w-2xl mx-auto">If you’re a builder, operator, or investor — and this resonates — we should talk.</p>
-                <a href="mailto:rohit@example.com?subject=Connecting from your bio page" 
-                   class="mt-8 inline-block bg-indigo-600 text-white font-semibold px-8 py-4 rounded-lg shadow-lg hover:bg-indigo-500 transition-all duration-300 transform hover:scale-105">
-                   Get in Touch
-                </a>
-            </section>
-        </main>
-        
-        <!-- Footer -->
-        <footer class="text-center text-gray-500 mt-20 pt-8 border-t border-gray-800">
-            <p>&copy; 2025 Rohit Chopra. All Rights Reserved.</p>
-        </footer>
-
+        <section class="cta-section fade-in">
+            <div class="cta-text">Ready to build something extraordinary together?</div>
+            <div class="contact-info">Let's connect and explore the possibilities.</div>
+        </section>
     </div>
-    
+
     <script>
-        // This script triggers a fade-in animation on elements as they scroll into view.
-        document.addEventListener("DOMContentLoaded", function() {
-            const animatedElements = document.querySelectorAll('.animate-on-scroll');
+        // Intersection Observer for fade-in animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
 
-            // If the browser doesn't support IntersectionObserver, just show the elements.
-            if (!('IntersectionObserver' in window)) {
-                animatedElements.forEach(el => el.classList.add('is-visible'));
-                return;
-            }
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, observerOptions);
 
-            const observer = new IntersectionObserver((entries, obs) => {
-                entries.forEach(entry => {
-                    // When an element is 10% in view, make it visible.
-                    if (entry.isIntersecting) {
-                        entry.target.classList.add('is-visible');
-                        // Stop observing the element once it's visible.
-                        obs.unobserve(entry.target);
-                    }
+        // Observe all fade-in elements
+        document.querySelectorAll('.fade-in').forEach(el => {
+            observer.observe(el);
+        });
+
+        // Smooth scrolling for better UX
+        document.documentElement.style.scrollBehavior = 'smooth';
+
+        // Image loading fallback
+        document.addEventListener('DOMContentLoaded', function() {
+            const img = document.querySelector('.profile-image');
+            if (img) {
+                img.addEventListener('error', function() {
+                    console.log('Image failed to load:', this.src);
+                    // You could add a placeholder or alternative image here
                 });
-            }, {
-                threshold: 0.1 // Trigger when 10% of the element is visible
-            });
-
-            animatedElements.forEach(el => {
-                observer.observe(el);
-            });
+            }
         });
     </script>
 </body>
