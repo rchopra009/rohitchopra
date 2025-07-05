@@ -4,472 +4,146 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Rohit Chopra - Co-Founder, Space Match</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        :root {
-            --primary-black: #1a1a1a;
-            --warm-gray: #f5f5f7;
-            --accent-gray: #86868b;
-            --subtle-gray: #d2d2d7;
-            --white: #ffffff;
-            --accent-blue: #007aff;
-            --soft-shadow: rgba(0, 0, 0, 0.04);
-            --text-shadow: rgba(0, 0, 0, 0.02);
-        }
-
         body {
-            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-            line-height: 1.6;
-            color: var(--primary-black);
-            background: linear-gradient(135deg, var(--white) 0%, var(--warm-gray) 100%);
-            min-height: 100vh;
-            overflow-x: hidden;
+            font-family: 'Inter', sans-serif;
+            background-color: #F9F9F9; /* A slightly warmer off-white */
+            color: #1d1d1f;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
         }
-
-        .container {
-            max-width: 800px;
-            margin: 0 auto;
-            padding: 60px 40px;
-            position: relative;
-        }
-
-        .hero-section {
-            text-align: center;
-            margin-bottom: 80px;
-            position: relative;
-        }
-
-        .hero-section::before {
-            content: '';
-            position: absolute;
-            top: -40px;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 100px;
-            height: 2px;
-            background: linear-gradient(90deg, transparent, var(--accent-blue), transparent);
-            opacity: 0.6;
-        }
-
-        .name {
-            font-size: clamp(2.5rem, 5vw, 3.5rem);
-            font-weight: 300;
-            letter-spacing: -0.02em;
-            margin-bottom: 12px;
-            background: linear-gradient(135deg, var(--primary-black), var(--accent-gray));
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-        }
-
-        .title {
-            font-size: 1.1rem;
-            color: var(--accent-gray);
-            font-weight: 500;
-            margin-bottom: 8px;
-        }
-
-        .tagline {
-            font-size: 0.95rem;
-            color: var(--accent-gray);
-            font-weight: 400;
-            margin-bottom: 40px;
-        }
-
-        .divider {
-            width: 60px;
+        /* Custom styles for a subtle, elegant horizontal rule */
+        .custom-hr {
+            border: 0;
             height: 1px;
-            background: var(--subtle-gray);
-            margin: 0 auto 40px;
-            opacity: 0.6;
+            background-color: #d1d1d6;
+            margin-top: 3rem;
+            margin-bottom: 3rem;
         }
-
-        .section {
-            margin-bottom: 60px;
-            position: relative;
-        }
-
-        .section-title {
-            font-size: 1.4rem;
-            font-weight: 600;
-            margin-bottom: 24px;
-            color: var(--primary-black);
-            position: relative;
-            display: inline-block;
-        }
-
-        .section-title::after {
-            content: '';
-            position: absolute;
-            bottom: -4px;
-            left: 0;
-            width: 40px;
-            height: 2px;
-            background: var(--accent-blue);
-            opacity: 0.8;
-        }
-
-        .section-content {
-            font-size: 1.05rem;
-            line-height: 1.7;
-            color: var(--primary-black);
-            margin-bottom: 24px;
-        }
-
-        .section-content p {
-            margin-bottom: 20px;
-        }
-
-        .highlight {
-            background: linear-gradient(120deg, rgba(0, 122, 255, 0.1) 0%, rgba(0, 122, 255, 0.05) 100%);
-            padding: 2px 6px;
-            border-radius: 4px;
-            font-weight: 500;
-        }
-
-        .quote {
-            font-style: italic;
-            font-size: 1.1rem;
-            color: var(--accent-gray);
-            border-left: 3px solid var(--accent-blue);
-            padding-left: 20px;
-            margin: 24px 0;
-            opacity: 0.9;
-        }
-
-        .principles {
-            background: var(--white);
-            border-radius: 12px;
-            padding: 32px;
-            box-shadow: 0 4px 20px var(--soft-shadow);
-            margin: 32px 0;
-            border: 1px solid rgba(0, 0, 0, 0.05);
-        }
-
-        .principles-list {
-            list-style: none;
-            padding: 0;
-        }
-
-        .principles-list li {
-            padding: 12px 0;
-            border-bottom: 1px solid rgba(0, 0, 0, 0.05);
-            position: relative;
-            padding-left: 24px;
-        }
-
-        .principles-list li:last-child {
-            border-bottom: none;
-        }
-
-        .principles-list li::before {
-            content: '→';
-            position: absolute;
-            left: 0;
-            color: var(--accent-blue);
-            font-weight: 600;
-        }
-
-        .fun-facts {
-            background: linear-gradient(135deg, var(--warm-gray) 0%, var(--white) 100%);
-            border-radius: 12px;
-            padding: 32px;
-            margin: 32px 0;
-            border: 1px solid rgba(0, 0, 0, 0.05);
-        }
-
-        .fun-facts h3 {
+        /* Styling for the icon list items */
+        .icon-list-item {
             display: flex;
-            align-items: center;
-            gap: 12px;
-            margin-bottom: 24px;
-            font-size: 1.3rem;
+            align-items: flex-start;
+            margin-bottom: 1rem;
         }
-
-        .fun-facts ul {
-            list-style: none;
-            padding: 0;
-        }
-
-        .fun-facts li {
-            padding: 10px 0;
-            position: relative;
-            padding-left: 24px;
-        }
-
-        .fun-facts li::before {
-            content: '•';
-            position: absolute;
-            left: 0;
-            color: var(--accent-blue);
-            font-weight: 600;
-            font-size: 1.2rem;
-        }
-
-        .cta-section {
-            text-align: center;
-            margin-top: 60px;
-            padding: 40px 0;
-            position: relative;
-        }
-
-        .cta-section::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 100px;
-            height: 1px;
-            background: linear-gradient(90deg, transparent, var(--subtle-gray), transparent);
-        }
-
-        .email-link {
-            display: inline-flex;
-            align-items: center;
-            gap: 12px;
-            background: var(--primary-black);
-            color: var(--white);
-            padding: 16px 32px;
-            border-radius: 8px;
-            text-decoration: none;
-            font-weight: 500;
-            transition: all 0.3s ease;
-            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
-        }
-
-        .email-link:hover {
-            background: var(--accent-blue);
-            transform: translateY(-2px);
-            box-shadow: 0 8px 30px rgba(0, 122, 255, 0.2);
-        }
-
-        .icon {
-            width: 20px;
-            height: 20px;
-            fill: currentColor;
-        }
-
-        .floating-elements {
-            position: fixed;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            pointer-events: none;
-            z-index: -1;
-        }
-
-        .floating-circle {
-            position: absolute;
-            border-radius: 50%;
-            background: linear-gradient(45deg, rgba(0, 122, 255, 0.02), rgba(0, 122, 255, 0.05));
-            animation: float 20s infinite ease-in-out;
-        }
-
-        .floating-circle:nth-child(1) {
-            width: 100px;
-            height: 100px;
-            top: 20%;
-            left: 10%;
-            animation-delay: 0s;
-        }
-
-        .floating-circle:nth-child(2) {
-            width: 60px;
-            height: 60px;
-            top: 60%;
-            right: 15%;
-            animation-delay: 7s;
-        }
-
-        .floating-circle:nth-child(3) {
-            width: 80px;
-            height: 80px;
-            bottom: 30%;
-            left: 20%;
-            animation-delay: 14s;
-        }
-
-        @keyframes float {
-            0%, 100% { transform: translateY(0px) rotate(0deg); }
-            25% { transform: translateY(-20px) rotate(90deg); }
-            50% { transform: translateY(-10px) rotate(180deg); }
-            75% { transform: translateY(-15px) rotate(270deg); }
-        }
-
-        .fade-in {
-            opacity: 0;
-            transform: translateY(20px);
-            animation: fadeIn 0.8s ease-out forwards;
-        }
-
-        @keyframes fadeIn {
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        .section:nth-child(1) .fade-in { animation-delay: 0.1s; }
-        .section:nth-child(2) .fade-in { animation-delay: 0.2s; }
-        .section:nth-child(3) .fade-in { animation-delay: 0.3s; }
-        .section:nth-child(4) .fade-in { animation-delay: 0.4s; }
-        .section:nth-child(5) .fade-in { animation-delay: 0.5s; }
-
-        @media (max-width: 768px) {
-            .container {
-                padding: 40px 20px;
-            }
-
-            .hero-section {
-                margin-bottom: 60px;
-            }
-
-            .section {
-                margin-bottom: 50px;
-            }
-
-            .principles, .fun-facts {
-                padding: 24px;
-            }
-
-            .email-link {
-                padding: 14px 28px;
-            }
+        .icon-list-item svg {
+            flex-shrink: 0;
+            margin-right: 0.75rem;
+            margin-top: 0.25rem;
+            color: #515154;
         }
     </style>
 </head>
-<body>
-    <div class="floating-elements">
-        <div class="floating-circle"></div>
-        <div class="floating-circle"></div>
-        <div class="floating-circle"></div>
-    </div>
+<body class="bg-gray-50">
 
-    <div class="container">
-        <div class="hero-section fade-in">
-            <h1 class="name">Meet Rohit Chopra</h1>
-            <p class="title">Co-Founder, Space Match</p>
-            <p class="tagline">Harvard-educated. Built in the trenches.</p>
-            <div class="divider"></div>
-        </div>
+    <!-- Main container with vertical padding -->
+    <main class="max-w-3xl mx-auto px-6 py-12 md:py-20">
 
-        <div class="section fade-in">
-            <div class="section-content">
-                <p><strong>I build systems that scale trust.</strong></p>
-                <p>I'm an operator, technologist, and systems thinker — currently co-building Space Match, a platform reimagining how commercial real estate is leased in India.</p>
-                <p>For over 20 years, I've led digital transformation at Fortune 500 companies, turned around struggling businesses, and built multiple ventures from scratch. My lens has always been the same:</p>
-                <div class="quote">Find the friction. Eliminate the noise. Build what compounds.</div>
-            </div>
-        </div>
+        <!-- Header Section -->
+        <header class="text-center mb-16">
+            <h1 class="text-4xl md:text-5xl font-bold tracking-tight text-gray-900">Meet Rohit Chopra</h1>
+            <p class="mt-3 text-lg md:text-xl text-gray-600">Co-Founder, Space Match</p>
+            <p class="mt-1 text-base text-gray-500">Harvard-educated. Built in the trenches.</p>
+        </header>
 
-        <div class="section fade-in">
-            <h2 class="section-title">Why Space Match</h2>
-            <div class="section-content">
-                <p>The idea for Space Match was born during a conversation with my co-founder Hitesh, while he was visiting me in the U.S.</p>
-                <p>We started talking about India's commercial real estate landscape — full of gatekeeping, guesswork, and outdated systems. It was clear:</p>
-                <div class="quote">This market doesn't need another listing site. It needs infrastructure.</div>
-                <p>So we're building exactly that — a <span class="highlight">high-trust platform powered by clean data, AI agents, and a product-first experience</span> that helps users go from search to signed lease without the chaos.</p>
-                <p>It's early, but we're obsessed with the craft. And the conviction is real.</p>
-            </div>
-        </div>
+        <!-- Section 1: Core Philosophy -->
+        <section>
+            <p class="text-2xl md:text-3xl font-medium text-center leading-snug">
+                I build systems that scale <span class="text-blue-600">trust</span>.
+            </p>
+            <p class="mt-8 text-lg text-gray-700 leading-relaxed">
+                I’m an operator, technologist, and systems thinker — currently co-building Space Match, a platform reimagining how commercial real estate is leased in India.
+            </p>
+            <p class="mt-4 text-lg text-gray-700 leading-relaxed">
+                For over 20 years, I’ve led digital transformation at Fortune 500 companies, turned around struggling businesses, and built multiple ventures from scratch. My lens has always been the same:
+            </p>
+            <blockquote class="mt-6 pl-4 border-l-2 border-gray-300">
+                <p class="text-lg italic text-gray-800">Find the friction. Eliminate the noise. Build what compounds.</p>
+            </blockquote>
+        </section>
 
-        <div class="section fade-in">
-            <h2 class="section-title">How I Operate</h2>
-            <div class="section-content">
-                <p>I've always believed the best builders have one foot in the code and the other in the real world.</p>
-                <p>I studied at Harvard, but learned the hard stuff from doing — scaling operations, fixing what's broken, and questioning default assumptions at every turn.</p>
-                <p>I work fast, bias toward clarity, and care deeply about:</p>
-            </div>
-            <div class="principles">
-                <ul class="principles-list">
-                    <li>Building leverage through automation</li>
-                    <li>Creating cultures of ownership, not control</li>
-                    <li>Designing products that feel inevitable</li>
-                </ul>
-            </div>
-            <div class="section-content">
-                <p>If you're a builder, operator, or investor — and this resonates — we should talk.</p>
-            </div>
-        </div>
+        <hr class="custom-hr">
 
-        <div class="section fade-in">
-            <div class="fun-facts">
-                <h3>
-                    <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                        <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"></polygon>
-                    </svg>
-                    Not Your Usual Bio
-                </h3>
-                <p style="color: var(--accent-gray); margin-bottom: 20px; font-style: italic;">(A few things that don't fit neatly into LinkedIn)</p>
-                <ul>
-                    <li>Ran a 4:32 mile (systems matter at every level)</li>
-                    <li>Harvard-educated, but built in the trenches</li>
-                    <li>Doesn't love meetings — does love breaking bottlenecks</li>
-                    <li>Thinks in frameworks, builds in loops</li>
-                    <li>Believes clarity > control and incentives > rules</li>
-                </ul>
+        <!-- Section 2: Why Space Match -->
+        <section>
+            <h2 class="text-2xl font-semibold tracking-tight text-gray-900">Why Space Match</h2>
+            <p class="mt-6 text-lg text-gray-700 leading-relaxed">
+                The idea for Space Match was born during a conversation with my co-founder Hitesh, while he was visiting me in the U.S. We started talking about India’s commercial real estate landscape — full of gatekeeping, guesswork, and outdated systems. It was clear:
+            </p>
+            <div class="mt-6 bg-white p-6 rounded-xl border border-gray-200">
+                <p class="text-lg font-medium text-gray-800">This market doesn’t need another listing site. It needs <span class="font-semibold text-blue-600">infrastructure.</span></p>
             </div>
-        </div>
+            <p class="mt-6 text-lg text-gray-700 leading-relaxed">
+                So we’re building exactly that — a high-trust platform powered by clean data, AI agents, and a product-first experience that helps users go from search to signed lease without the chaos.
+            </p>
+            <p class="mt-4 text-lg text-gray-700 leading-relaxed">
+                It’s early, but we’re obsessed with the craft. And the conviction is real.
+            </p>
+        </section>
 
-        <div class="cta-section fade-in">
-            <a href="mailto:rohitchopra@gmail.com" class="email-link">
-                <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                    <path d="m4 4 16 0 0 16-16 0z"></path>
-                    <path d="m4 4 8 8 8-8"></path>
-                </svg>
-                Let's Connect
+        <hr class="custom-hr">
+
+        <!-- Section 3: How I Operate -->
+        <section>
+            <h2 class="text-2xl font-semibold tracking-tight text-gray-900">How I Operate</h2>
+            <p class="mt-6 text-lg text-gray-700 leading-relaxed">
+                I’ve always believed the best builders have one foot in the code and the other in the real world. I studied at Harvard, but learned the hard stuff from doing — scaling operations, fixing what’s broken, and questioning default assumptions at every turn.
+            </p>
+            <p class="mt-4 text-lg text-gray-700 leading-relaxed">
+                I work fast, bias toward clarity, and care deeply about:
+            </p>
+            <ul class="mt-6 space-y-4 text-lg text-gray-800">
+                <li class="flex items-start">
+                    <svg class="w-6 h-6 text-blue-600 mr-3 mt-1 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path></svg>
+                    <span>Building leverage through automation</span>
+                </li>
+                <li class="flex items-start">
+                    <svg class="w-6 h-6 text-blue-600 mr-3 mt-1 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"></path></svg>
+                    <span>Creating cultures of ownership, not control</span>
+                </li>
+                <li class="flex items-start">
+                     <svg class="w-6 h-6 text-blue-600 mr-3 mt-1 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z"></path></svg>
+                    <span>Designing products that feel inevitable</span>
+                </li>
+            </ul>
+             <p class="mt-8 text-lg text-gray-700 leading-relaxed">
+                If you’re a builder, operator, or investor — and this resonates — we should talk.
+            </p>
+        </section>
+
+        <hr class="custom-hr">
+        
+        <!-- Section 4: Not Your Usual Bio -->
+        <section class="bg-white p-8 rounded-2xl border border-gray-200">
+            <h2 class="text-xl font-semibold tracking-tight text-gray-900 flex items-center">
+                <svg class="w-6 h-6 mr-3 text-gray-500" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path></svg>
+                Not Your Usual Bio
+            </h2>
+            <p class="mt-2 text-base text-gray-600">A few things that don’t fit neatly into LinkedIn.</p>
+            <ul class="mt-6 space-y-3 text-base text-gray-700">
+                <li class="flex"><span class="mr-3 text-gray-500">&rarr;</span><span>Ran a 4:32 mile (systems matter at every level)</span></li>
+                <li class="flex"><span class="mr-3 text-gray-500">&rarr;</span><span>Harvard-educated, but built in the trenches</span></li>
+                <li class="flex"><span class="mr-3 text-gray-500">&rarr;</span><span>Doesn’t love meetings — does love breaking bottlenecks</span></li>
+                <li class="flex"><span class="mr-3 text-gray-500">&rarr;</span><span>Thinks in frameworks, builds in loops</span></li>
+                <li class="flex"><span class="mr-3 text-gray-500">&rarr;</span><span>Believes clarity > control and incentives > rules</span></li>
+            </ul>
+        </section>
+
+        <!-- Footer / Contact Section -->
+        <footer class="text-center mt-20">
+            <a href="mailto:rohitchopra@gmail.com" class="inline-block bg-blue-600 text-white font-medium text-lg px-8 py-4 rounded-lg shadow-md hover:bg-blue-700 transition-colors duration-300 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500">
+                Get in Touch
             </a>
-        </div>
-    </div>
+            <p class="mt-6 text-sm text-gray-500">
+                Rohit Chopra &copy; 2024
+            </p>
+        </footer>
 
-    <script>
-        // Smooth scroll behavior for any internal links
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-                document.querySelector(this.getAttribute('href')).scrollIntoView({
-                    behavior: 'smooth'
-                });
-            });
-        });
+    </main>
 
-        // Add subtle parallax effect to floating elements
-        window.addEventListener('scroll', () => {
-            const scrolled = window.pageYOffset;
-            const rate = scrolled * -0.1;
-            const circles = document.querySelectorAll('.floating-circle');
-            
-            circles.forEach((circle, index) => {
-                const speed = (index + 1) * 0.1;
-                circle.style.transform = `translateY(${rate * speed}px)`;
-            });
-        });
-
-        // Intersection Observer for fade-in animations
-        const observerOptions = {
-            threshold: 0.1,
-            rootMargin: '0px 0px -50px 0px'
-        };
-
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add('fade-in');
-                }
-            });
-        }, observerOptions);
-
-        document.querySelectorAll('.section').forEach(section => {
-            observer.observe(section);
-        });
-    </script>
 </body>
 </html>
